@@ -66,6 +66,10 @@ function showWeather(response) {
   country.innerHTML = response.data.name;
   let humidity = document.querySelector("#hum-value");
   humidity.innerHTML = response.data.main.humidity;
+  let wind = document.querySelector("#wind-value");
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
 }
 
 function retrievePosition(position) {
