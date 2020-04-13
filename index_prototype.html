@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Prototype</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/8db95963fb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="country">
+        Finland
+      </h1>
+      <h2>
+        Sunday 12:00
+      </h2>
+      <span class="temp-value" id="temperature">
+        -2
+      </span>
+      <span class="units">
+        <span class="celsius-button" id="temperature-celsius" role="button">
+          ºC
+        </span>
+        |
+        <span
+          class="fahrenheit-button"
+          id="temperature-fahrenheit"
+          role="button"
+        >
+          ºF
+        </span>
+      </span>
+      <div class="temp-description" id="description">
+        Sunny
+      </div>
+
+      <div class="icons">
+        <canvas id="clear-day" width="64" height="64"> </canvas>
+      </div>
+      <div class="week-day">
+        <div class="day-mon">
+          Mon
+          <i class="fas fa-cloud-sun-rain"></i> -2º
+        </div>
+        <div class="day-tue">
+          Tue
+          <i class="fas fa-cloud-sun"></i> 0º
+        </div>
+        <div class="day-wed">
+          Wed
+          <i class="fas fa-cloud"></i> 2º
+        </div>
+        <div class="day-thu">
+          Thu
+          <i class="far fa-snowflake"></i> -5º
+        </div>
+        <div class="day-fri">
+          Fri
+          <i class="fas fa-cloud-sun-rain"></i> -1º
+        </div>
+      </div>
+      <form class="search-city" id="search-form">
+        <input type="submit" value="Search" class="hvr-glow2" id="searching" />
+        <button type="submit" class="hvr-glow" id="current">
+          Current
+        </button>
+        <input
+          type="text"
+          placeholder="Enter a city"
+          autocomplete="off"
+          autofocus="on"
+          id="enter-city"
+        />
+      </form>
+      <section class="weather-stuff">
+        <div class="humidity">
+          Humidity:
+          <span id="hum-value">
+            5
+          </span>
+          %
+        </div>
+        <div class="wind">
+          Wind:
+          <span id="wind-value">
+            3
+          </span>
+          <span id="velocity">
+            km/h
+          </span>
+        </div>
+      </section>
+      <section class="countries">
+        <a href="" id="lisbon">
+          Lisbon
+        </a>
+        <a href="" id="finland">
+          Finland
+        </a>
+        <a href="" id="paris">
+          Paris
+        </a>
+        <a href="" id="new-york">
+          New-York
+        </a>
+      </section>
+      <br />
+      <small class="source">
+        <a href="">
+          Open-source code
+        </a>
+        ,by
+        <a href="">
+          Bruna Sousa
+        </a>
+        from
+        <a href="">
+          She Codes
+        </a>
+      </small>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
