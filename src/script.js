@@ -30,7 +30,6 @@ dateElement.innerHTML = formatDate(currentTime);
 // Search by city-----------------------------------------------------
 
 function showTemperature(response) {
-  console.log(response);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
@@ -39,7 +38,10 @@ function showTemperature(response) {
   let humidity = document.querySelector("#hum-value");
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind-value");
-  wind.innerHTML = response.data.wind.speed;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
+  console.log(response.data.weather[0].description);
 }
 
 function showCity(event) {
@@ -57,7 +59,6 @@ searchCity.addEventListener("submit", showCity);
 // Search by Current Position--------------------------------------------
 
 function showWeather(response) {
-  console.log(response);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
@@ -70,9 +71,7 @@ function showWeather(response) {
 function retrievePosition(position) {
   let apiKey = "a9faced9de85631774ac04816866c180";
   let lat = position.coords.latitude;
-  console.log(lat);
   let lon = position.coords.longitude;
-  console.log(lon);
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showWeather);
 }
