@@ -27,9 +27,6 @@
       <h1 id="country">
         Finland
       </h1>
-      <h2>
-        Sunday 12:00
-      </h2>
       <span class="temp-value" id="temperature">
         -2
       </span>
@@ -49,7 +46,12 @@
       <div class="temp-description" id="description">
         Sunny
       </div>
-
+      <div class="last-up" id="last-updated">
+        Last updated:
+      </div>
+      <h2>
+        Sunday 12:00
+      </h2>
       <div class="icons">
         <canvas id="clear-day" width="64" height="64"> </canvas>
       </div>
@@ -88,25 +90,17 @@
           id="enter-city"
         />
       </form>
-      <section class="weather-stuff">
+      <div class="weather-stuff">
         <div class="humidity">
           Humidity:
-          <span id="hum-value">
-            5
-          </span>
-          %
+          <span id="hum-value"> 5</span>%
         </div>
         <div class="wind">
           Wind:
-          <span id="wind-value">
-            3
-          </span>
-          <span id="velocity">
-            km/h
-          </span>
+          <span id="wind-value"> 3</span>km/h
         </div>
-      </section>
-      <section class="countries">
+      </div>
+      <div class="countries">
         <a href="" id="lisbon">
           Lisbon
         </a>
@@ -119,8 +113,7 @@
         <a href="" id="new-york">
           New-York
         </a>
-      </section>
-      <br />
+      </div>
       <small class="source">
         <a href="https://github.com/BrunaBibs/weather-app" target="_blank">
           Open-source code

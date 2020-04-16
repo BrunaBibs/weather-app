@@ -3,6 +3,25 @@ h2,
 h3 {
   color: #fff;
 }
+
+h1 {
+  font-size: 35px;
+}
+h2 {
+  font-size: 13px;
+}
+
+.temp-description {
+  color: white;
+  font-size: 23px;
+}
+
+.last-up {
+  font-size: 17px;
+  color: #fff;
+  font-style: italic;
+}
+
 .container {
   width: 800px;
   height: 400px;
@@ -70,10 +89,6 @@ input {
 
 .search-city {
   margin: 90px 2px;
-}
-
-.temp-description {
-  color: white;
 }
 
 .icons {
