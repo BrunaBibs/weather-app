@@ -14,6 +14,7 @@ h2 {
 .temp-description {
   color: white;
   font-size: 23px;
+  text-transform: capitalize;
 }
 
 .last-up {
@@ -149,4 +150,9 @@ input {
 .hvr-glow2:focus,
 .hvr-glow2:active {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.source {
+  position: relative;
+  top: -30px;
 }
