@@ -42,6 +42,11 @@ function showTemperature(response) {
   let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].description;
   console.log(response.data.weather[0].description);
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${response.data.weather[0].icon}.png`
+  );
 }
 
 function showCity(event) {
@@ -70,6 +75,11 @@ function showWeather(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
   let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].description;
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${response.data.weather[0].icon}.png`
+  );
 }
 
 function retrievePosition(position) {
