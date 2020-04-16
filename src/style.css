@@ -51,9 +51,11 @@ i {
   color: #fff;
 }
 
-.celsius-button,
-.fahrenheit-button {
-  font-size: 13px;
+.units {
+  font-size: 16px;
+  position: relative;
+  top: -16px;
+  color: #fff;
 }
 
 input {
