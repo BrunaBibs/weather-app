@@ -54,6 +54,23 @@ function showTemperature(response) {
 
 function showForecast(response) {
   console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.list[0];
+  forecastElement.innerHTML = `
+    <div class="day-mon">
+      Mon
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecast.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(forecast.main.temp_max)}º</strong> | ${Math.round(
+    forecast.main.temp_min
+  )}º
+    </div>
+  `;
 }
 
 function showCity(event) {
