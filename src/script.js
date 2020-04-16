@@ -80,6 +80,7 @@ function showWeather(response) {
     "src",
     `https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${response.data.weather[0].icon}.png`
   );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function retrievePosition(position) {
@@ -95,8 +96,3 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#current");
 button.addEventListener("click", getCurrentPosition);
-
-let icons = new Skycons({ color: "white" });
-
-icons.set("clear-day", Skycons.CLEAR_DAY);
-icons.play();
