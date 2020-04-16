@@ -33,6 +33,7 @@ function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
+  celsiusTemperature = response.data.main.temp;
   let country = document.querySelector("#country");
   country.innerHTML = response.data.name;
   let humidity = document.querySelector("#hum-value");
@@ -67,6 +68,8 @@ function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}`;
+
+  celsiusTemperature = response.data.main.temp;
   let country = document.querySelector("#country");
   country.innerHTML = response.data.name;
   let humidity = document.querySelector("#hum-value");
@@ -96,3 +99,28 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#current");
 button.addEventListener("click", getCurrentPosition);
+
+//---------------Convert to Fahrenheit-----------------------
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#temperature-fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+//---------------Convert to Celsius---------------------------
+
+function showCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusLink = document.querySelector("#temperature-celsius");
+celsiusLink.addEventListener("click", showCelsius);

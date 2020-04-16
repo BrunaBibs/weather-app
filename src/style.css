@@ -59,7 +59,6 @@ i {
   font-size: 16px;
   position: relative;
   top: -16px;
-  color: #fff;
 }
 
 img {
@@ -160,4 +159,14 @@ input {
 .source {
   position: relative;
   top: -30px;
+}
+
+.celsius-temp {
+  color: #fff;
+  cursor: default;
+}
+
+.celsius-temp:hover {
+  text-decoration: none;
+  color: #fff;
 }
