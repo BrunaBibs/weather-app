@@ -161,12 +161,12 @@ input {
   top: -30px;
 }
 
-.celsius-temp {
+.active {
   color: #fff;
   cursor: default;
 }
 
-.celsius-temp:hover {
+.active:hover {
   text-decoration: none;
   color: #fff;
 }
