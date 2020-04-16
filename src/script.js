@@ -50,6 +50,12 @@ function showTemperature(response) {
   );
 }
 
+// Show Forecast
+
+function showForecast(response) {
+  console.log(response.data);
+}
+
 function showCity(event) {
   event.preventDefault();
   let city = document.querySelector("#enter-city");
@@ -58,6 +64,9 @@ function showCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=${units}&appid=${apiKey}`;
 
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&units=${units}&appid=${apiKey}`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showForecast);
 }
 let searchCity = document.querySelector("#search-form");
 searchCity.addEventListener("submit", showCity);

@@ -61,10 +61,15 @@ i {
   top: -16px;
 }
 
-img {
+.major-icon {
   position: relative;
-  top: -120px;
-  left: 240px;
+  top: -180px;
+  left: 190px;
+  width: 200px;
+}
+
+img {
+  width: 50px;
 }
 
 input {
@@ -72,12 +77,12 @@ input {
   border: none;
   padding: 4px;
   height: 30px;
-  margin: 10px 1px;
+  margin: 200px 1px;
 }
 
 .week-day {
   text-align: right;
-  margin: -200px 2px;
+  margin: -380px 2px;
   line-height: 60px;
   color: #fff;
 }
@@ -90,12 +95,12 @@ input {
 .weather-stuff {
   font-style: oblique;
   color: grey;
-  margin: -70px 2px;
+  margin: -280px 2px;
 }
 
 .countries {
   text-align: center;
-  margin: 65px 2px;
+  margin: 280px 2px;
 }
 
 .search-city {
@@ -158,7 +163,7 @@ input {
 
 .source {
   position: relative;
-  top: -30px;
+  top: -240px;
 }
 
 .active {
