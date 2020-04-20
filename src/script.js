@@ -80,10 +80,75 @@ function formatForecast(forecast) {
 
 function showForecast(response) {
   console.log(response.data);
-  let forecastElement = document.querySelector("#forecast");
+  let forecastElement = document.querySelector(".day-first");
   let forecast = response.data.list[7];
   forecastElement.innerHTML = `
-    <div class="day-mon">
+    <div class="day-first">
+      ${formatForecast(forecast.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecast.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(forecast.main.temp_max)}º</strong> | ${Math.round(
+    forecast.main.temp_min
+  )}º
+    </div>
+  `;
+
+  forecast = response.data.list[15];
+  forecastElement.innerHTML += `
+    <div class="day-second">
+      ${formatForecast(forecast.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecast.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(forecast.main.temp_max)}º</strong> | ${Math.round(
+    forecast.main.temp_min
+  )}º
+    </div>
+  `;
+  forecast = response.data.list[23];
+  forecastElement.innerHTML += `
+    <div class="day-third">
+      ${formatForecast(forecast.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecast.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(forecast.main.temp_max)}º</strong> | ${Math.round(
+    forecast.main.temp_min
+  )}º
+    </div>
+  `;
+  forecast = response.data.list[31];
+  forecastElement.innerHTML += `
+    <div class="day-fourth">
+      ${formatForecast(forecast.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecast.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(forecast.main.temp_max)}º</strong> | ${Math.round(
+    forecast.main.temp_min
+  )}º
+    </div>
+  `;
+  forecast = response.data.list[39];
+  forecastElement.innerHTML += `
+    <div class="day-fifth">
       ${formatForecast(forecast.dt_txt)}
       <img
         src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
