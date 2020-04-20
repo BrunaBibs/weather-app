@@ -52,13 +52,39 @@ function showTemperature(response) {
 
 // Show Forecast
 
+function formatForecast(forecast) {
+  let date = new Date(forecast);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let dayIndex = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[dayIndex];
+
+  return `${day} ${hours}:${minutes}`;
+}
+
 function showForecast(response) {
   console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
-  let forecast = response.data.list[0];
+  let forecast = response.data.list[7];
   forecastElement.innerHTML = `
     <div class="day-mon">
-      Mon
+      ${formatForecast(forecast.dt_txt)}
       <img
         src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
           forecast.weather[0].icon
