@@ -42,7 +42,6 @@ function showTemperature(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
   let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].description;
-  console.log(response.data.weather[0].description);
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
@@ -79,7 +78,6 @@ function formatForecast(forecast) {
 }
 
 function showForecast(response) {
-  console.log(response.data);
   let forecast1Element = document.querySelector(".day-first");
   let forecastOne = response.data.list[7];
   forecast1Element.innerHTML = `
@@ -206,34 +204,7 @@ function showWeather(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
-function formatForecast(forecast) {
-  let date = new Date(forecast);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  let dayIndex = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[dayIndex];
-
-  return `${day} ${hours}:${minutes}`;
-}
-
 function showForecast(response) {
-  console.log(response.data);
   let forecast1Element = document.querySelector(".day-first");
   let forecastOne = response.data.list[7];
   forecast1Element.innerHTML = `
