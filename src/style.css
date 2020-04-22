@@ -5,7 +5,7 @@ h3 {
 }
 
 h1 {
-  font-size: 35px;
+  font-size: 33px;
 }
 h2 {
   font-size: 13px;
@@ -63,9 +63,9 @@ i {
 
 .major-icon {
   position: relative;
-  top: -150px;
+  top: -130px;
   left: 190px;
-  width: 190px;
+  width: 170px;
 }
 
 img {
@@ -82,7 +82,8 @@ input {
 
 .week-day {
   text-align: right;
-  margin: -380px 2px;
+  font-size: 14px;
+  margin: -350px 2px;
   line-height: 60px;
   color: #fff;
 }
