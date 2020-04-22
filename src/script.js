@@ -80,21 +80,89 @@ function formatForecast(forecast) {
 
 function showForecast(response) {
   console.log(response.data);
-  let forecastElement = document.querySelector(".day-first");
-  let forecast = response.data.list[7];
-  forecastElement.innerHTML = `
+  let forecast1Element = document.querySelector(".day-first");
+  let forecastOne = response.data.list[7];
+  forecast1Element.innerHTML = `
     <div class="day-first">
-      ${formatForecast(forecast.dt_txt)}
+      ${formatForecast(forecastOne.dt_txt)}
       <img
         src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
-          forecast.weather[0].icon
+          forecastOne.weather[0].icon
         }.png"
         alt="clear"
         id="icon"
       />
-      <strong>${Math.round(forecast.main.temp_max)}º</strong> | ${Math.round(
-    forecast.main.temp_min
+      <strong>${Math.round(forecastOne.main.temp_max)}º</strong> | ${Math.round(
+    forecastOne.main.temp_min
   )}º
+    </div>
+  `;
+  let forecast2Element = document.querySelector(".day-second");
+  let forecastTwo = response.data.list[15];
+  forecast2Element.innerHTML = `
+    <div class="day-second">
+      ${formatForecast(forecastTwo.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastTwo.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(forecastTwo.main.temp_max)}º</strong> | ${Math.round(
+    forecastTwo.main.temp_min
+  )}º
+    </div>
+  `;
+  let forecast3Element = document.querySelector(".day-third");
+  let forecastThree = response.data.list[23];
+  forecast3Element.innerHTML = `
+    <div class="day-third">
+      ${formatForecast(forecastThree.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastThree.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(
+        forecastThree.main.temp_max
+      )}º</strong> | ${Math.round(forecastThree.main.temp_min)}º
+    </div>
+  `;
+  let forecast4Element = document.querySelector(".day-fourth");
+  let forecastFour = response.data.list[31];
+  forecast4Element.innerHTML = `
+    <div class="day-fourth">
+      ${formatForecast(forecastFour.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastFour.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(
+        forecastFour.main.temp_max
+      )}º</strong> | ${Math.round(forecastFour.main.temp_min)}º
+    </div>
+  `;
+  let forecast5Element = document.querySelector(".day-fifth");
+  let forecastFive = response.data.list[39];
+  forecast5Element.innerHTML = `
+    <div class="day-fifth">
+      ${formatForecast(forecastFive.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastFive.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(
+        forecastFive.main.temp_max
+      )}º</strong> | ${Math.round(forecastFive.main.temp_min)}º
     </div>
   `;
 }
