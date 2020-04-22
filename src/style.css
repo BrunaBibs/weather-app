@@ -99,11 +99,6 @@ input {
   margin: -280px 2px;
 }
 
-.countries {
-  text-align: center;
-  margin: 280px 2px;
-}
-
 .search-city {
   margin: 90px 2px;
 }
@@ -164,7 +159,7 @@ input {
 
 .source {
   position: relative;
-  top: -240px;
+  top: 320px;
 }
 
 .active {
