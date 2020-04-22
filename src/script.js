@@ -27,7 +27,7 @@ let dateElement = document.querySelector("h2");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
-// Search by city-----------------------------------------------------
+//----------------------------------- Search by city-----------------------------------------------------
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -50,7 +50,7 @@ function showTemperature(response) {
   );
 }
 
-// Show Forecast
+//---------------------------Show Forecast--------------------------------------------------
 
 function formatForecast(forecast) {
   let date = new Date(forecast);
@@ -206,12 +206,130 @@ function showWeather(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
+function formatForecast(forecast) {
+  let date = new Date(forecast);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let dayIndex = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[dayIndex];
+
+  return `${day} ${hours}:${minutes}`;
+}
+
+function showForecast(response) {
+  console.log(response.data);
+  let forecast1Element = document.querySelector(".day-first");
+  let forecastOne = response.data.list[7];
+  forecast1Element.innerHTML = `
+    <div class="day-first">
+      ${formatForecast(forecastOne.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastOne.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(forecastOne.main.temp_max)}º</strong> | ${Math.round(
+    forecastOne.main.temp_min
+  )}º
+    </div>
+  `;
+  let forecast2Element = document.querySelector(".day-second");
+  let forecastTwo = response.data.list[15];
+  forecast2Element.innerHTML = `
+    <div class="day-second">
+      ${formatForecast(forecastTwo.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastTwo.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(forecastTwo.main.temp_max)}º</strong> | ${Math.round(
+    forecastTwo.main.temp_min
+  )}º
+    </div>
+  `;
+  let forecast3Element = document.querySelector(".day-third");
+  let forecastThree = response.data.list[23];
+  forecast3Element.innerHTML = `
+    <div class="day-third">
+      ${formatForecast(forecastThree.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastThree.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(
+        forecastThree.main.temp_max
+      )}º</strong> | ${Math.round(forecastThree.main.temp_min)}º
+    </div>
+  `;
+  let forecast4Element = document.querySelector(".day-fourth");
+  let forecastFour = response.data.list[31];
+  forecast4Element.innerHTML = `
+    <div class="day-fourth">
+      ${formatForecast(forecastFour.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastFour.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(
+        forecastFour.main.temp_max
+      )}º</strong> | ${Math.round(forecastFour.main.temp_min)}º
+    </div>
+  `;
+  let forecast5Element = document.querySelector(".day-fifth");
+  let forecastFive = response.data.list[39];
+  forecast5Element.innerHTML = `
+    <div class="day-fifth">
+      ${formatForecast(forecastFive.dt_txt)}
+      <img
+        src="https://raw.githubusercontent.com/BrunaBibs/weather-app/master/icons/${
+          forecastFive.weather[0].icon
+        }.png"
+        alt="clear"
+        id="icon"
+      />
+      <strong>${Math.round(
+        forecastFive.main.temp_max
+      )}º</strong> | ${Math.round(forecastFive.main.temp_min)}º
+    </div>
+  `;
+}
+
 function retrievePosition(position) {
   let apiKey = "a9faced9de85631774ac04816866c180";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showWeather);
+
+  url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(`${url}&appid=${apiKey}`).then(showForecast);
 }
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
