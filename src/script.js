@@ -167,7 +167,7 @@ function showForecast(response) {
 function showCity(event) {
   event.preventDefault();
   let city = document.querySelector("#enter-city");
-  let apiKey = "42c9623fedf9da69c2db0d440f0b16d7";
+  let apiKey = "72622dec4e20a4704bafd06df7c47c5d";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&units=${units}&appid=${apiKey}`;
 
@@ -204,6 +204,7 @@ function showWeather(response) {
 }
 
 function showForecast(response) {
+  console.log(response.data);
   let forecast1Element = document.querySelector(".day-first");
   let forecastOne = response.data.list[7];
   forecast1Element.innerHTML = `
@@ -292,7 +293,7 @@ function showForecast(response) {
 }
 
 function retrievePosition(position) {
-  let apiKey = "42c9623fedf9da69c2db0d440f0b16d7";
+  let apiKey = "72622dec4e20a4704bafd06df7c47c5d";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
