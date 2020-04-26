@@ -204,7 +204,6 @@ function showWeather(response) {
 }
 
 function showForecast(response) {
-  console.log(response.data);
   let forecast1Element = document.querySelector(".day-first");
   let forecastOne = response.data.list[7];
   forecast1Element.innerHTML = `
